@@ -1,40 +1,16 @@
-<h2>Counter App</h2>
+<h2>Get and Set Input field</h2>
 <div style="text-align: center">
-  <h3 class="counter">{{ count }}</h3>
-  <div>
-    <button class="btn bg-red" (click)="handleClickbutton('minus')">
-      Decrement
-    </button>
-    <button class="btn bg-black" (click)="handleClickbutton('reset')">
-      Reset
-    </button>
-    <button class="btn bg-green" (click)="handleClickbutton('plus')">
-      Increment
-    </button>
-  </div>
-  <br />
-  <button
-    name="button"
-    (focus)="handleEvent($event)"
-    (click)="handleEvent($event)"
-  >
-    click Event
-  </button>
-  <br /><br />
+  <h3>{{ username }}</h3>
   <input
+    value="{{ username }}"
+    #usernameField
     type="text"
-    name="user"
-    (input)="handleEvent($event)"
-    (focus)="handleEvent($event)"
+    placeHolder="enter user name"
+    (input)="getUserName($event)"
   />
   <br /><br />
-  <div
-    (mouseenter)="handleEvent($event)"
-    style="background-color: green; height: 100px; width: 100px"
-  ></div>
-  <br /><br />
-  <div
-    (mouseleave)="handleEvent($event)"
-    style="background-color: black; height: 100px; width: 100px"
-  ></div>
+  <button (click)="setUsername()" style="margin: 10px">Set User Name</button>
+  <button (click)="getUsernameWithTemplate(usernameField.value)">
+    Get User Name
+  </button>
 </div>

@@ -10,22 +10,19 @@ import { SignupComponent } from './components/signup/signup.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  count: number = 0;
+  username = '';
 
-  handleClickbutton(val: String) {
-    console.log(val);
-    if (val == 'plus') {
-      this.count++;
-    } else if (val == 'minus' && this.count > 0) {
-      this.count--;
-    } else {
-      this.count = 0;
-    }
+  getUserName(event: Event) {
+    // this.username = (event.target as HTMLInputElement).value;
   }
 
-  handleEvent(event: Event) {
-    console.log('event triggered: ', event.type);
-    console.log('event triggered: ', (event.target as HTMLInputElement).name);
-    console.log('event triggered: ', (event.target as HTMLInputElement).value);
+  setUsername() {
+    this.username = 'Peter';
+  }
+
+  getUsernameWithTemplate(val: string) {
+    this.username = val;
+
+    console.log(this.username);
   }
 }

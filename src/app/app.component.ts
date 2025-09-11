@@ -10,21 +10,17 @@ import { SignupComponent } from './components/signup/signup.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  display = true;
+  color = 'red';
 
-  displayOneDiv = true;
-  hideButton() {
-    this.display = false;
-  }
-  showButton() {
-    this.display = true;
+  handleColor(val: string) {
+    this.color = val;
   }
 
-  toggle() {
-    this.display = !this.display;
+  handleuserColor(event: Event) {
+    this.color = (event.target as HTMLInputElement).value;
   }
 
-  toggleOneDiv() {
-    this.displayOneDiv = !this.displayOneDiv;
+  handleuserColorWithTemplateVar(val: string) {
+    this.color = val;
   }
 }

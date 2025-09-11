@@ -1,19 +1,25 @@
-<h2>If Else Control Flow</h2>
-<button (click)="hideButton()">hide</button>
-<button (click)="showButton()">show</button>
-<button (click)="toggle()">toggle</button>
-<button (click)="toggle()">{{ display ? "hide" : "show" }}</button>
-@if(display) {
-<div style="background-color: green; height: 100px; width: 100px"></div>
-}
+<h2>Switch Case Control Flow</h2>
+<button (click)="handleColor('blue')">Blue</button>
+<button (click)="handleColor('red')">Red</button>
+<button (click)="handleColor('green')">Green</button>
+<button (click)="handleColor('yellow')">Yellow</button>
+<button (click)="handleColor('black')">Default</button>
+<input type="text" #userColor placeholder="enter color" />
+<!-- (input)="handleuserColor($event)" 
+   />
+   -->
 
-<hr />
-
-<button (click)="toggleOneDiv()">display one div</button>
-@if(displayOneDiv) {
-<div style="background-color: red; height: 100px; width: 100px"></div>
-} @else {
-<div
-  style="background-color: rgb(255, 200, 0); height: 100px; width: 100px"
-></div>
-}
+<button (click)="handleuserColorWithTemplateVar(userColor.value)">
+  Submit User Color
+</button>
+@switch(color.toUpperCase()) { @case('RED') {
+<h1 style="background-color: Red">Red Color</h1>
+} @case('GREEN') {
+<h1 style="background-color: green">Green Color</h1>
+} @case('YELLOW'){
+<h1 style="background-color: yellow">Yellow Color</h1>
+} @case('BLUE'){
+<h1 style="background-color: blue">Blue Color</h1>
+} @default {
+<h1 style="background-color: black; color: white">No Match</h1>
+}}

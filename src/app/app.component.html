@@ -1,16 +1,6 @@
-<h2>For Loop template</h2>
+<h2>Signal 1</h2>
 
-@for(user of users; track user){
-<h2>{{ user }}</h2>
-}
-
-<hr />
-
-@for(student of students; track student.name; let id=$index) {
-<h2>
-  <span>ID: {{ id + 1 }}</span>
-  <span>, Name: {{ student.name }}</span>
-  <span>, Age: {{ student.age }}</span>
-  <span>, Email: {{ student.emailId }}</span>
-</h2>
-}
+<h2>signal: {{ count() }}</h2>
+<h2>var: {{ data }}</h2>
+<button (click)="handleSignal('dec')">Decrement</button>
+<button (click)="handleSignal('inc')">Increment</button>

@@ -1,16 +1,19 @@
-<h2>Get and Set Input field</h2>
-<div style="text-align: center">
-  <h3>{{ username }}</h3>
-  <input
-    value="{{ username }}"
-    #usernameField
-    type="text"
-    placeHolder="enter user name"
-    (input)="getUserName($event)"
-  />
-  <br /><br />
-  <button (click)="setUsername()" style="margin: 10px">Set User Name</button>
-  <button (click)="getUsernameWithTemplate(usernameField.value)">
-    Get User Name
-  </button>
-</div>
+<h2>If Else Control Flow</h2>
+<button (click)="hideButton()">hide</button>
+<button (click)="showButton()">show</button>
+<button (click)="toggle()">toggle</button>
+<button (click)="toggle()">{{ display ? "hide" : "show" }}</button>
+@if(display) {
+<div style="background-color: green; height: 100px; width: 100px"></div>
+}
+
+<hr />
+
+<button (click)="toggleOneDiv()">display one div</button>
+@if(displayOneDiv) {
+<div style="background-color: red; height: 100px; width: 100px"></div>
+} @else {
+<div
+  style="background-color: rgb(255, 200, 0); height: 100px; width: 100px"
+></div>
+}

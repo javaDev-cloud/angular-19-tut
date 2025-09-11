@@ -10,19 +10,21 @@ import { SignupComponent } from './components/signup/signup.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  username = '';
+  display = true;
 
-  getUserName(event: Event) {
-    // this.username = (event.target as HTMLInputElement).value;
+  displayOneDiv = true;
+  hideButton() {
+    this.display = false;
+  }
+  showButton() {
+    this.display = true;
   }
 
-  setUsername() {
-    this.username = 'Peter';
+  toggle() {
+    this.display = !this.display;
   }
 
-  getUsernameWithTemplate(val: string) {
-    this.username = val;
-
-    console.log(this.username);
+  toggleOneDiv() {
+    this.displayOneDiv = !this.displayOneDiv;
   }
 }

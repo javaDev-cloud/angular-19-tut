@@ -1,25 +1,16 @@
-<h2>Switch Case Control Flow</h2>
-<button (click)="handleColor('blue')">Blue</button>
-<button (click)="handleColor('red')">Red</button>
-<button (click)="handleColor('green')">Green</button>
-<button (click)="handleColor('yellow')">Yellow</button>
-<button (click)="handleColor('black')">Default</button>
-<input type="text" #userColor placeholder="enter color" />
-<!-- (input)="handleuserColor($event)" 
-   />
-   -->
+<h2>For Loop template</h2>
 
-<button (click)="handleuserColorWithTemplateVar(userColor.value)">
-  Submit User Color
-</button>
-@switch(color.toUpperCase()) { @case('RED') {
-<h1 style="background-color: Red">Red Color</h1>
-} @case('GREEN') {
-<h1 style="background-color: green">Green Color</h1>
-} @case('YELLOW'){
-<h1 style="background-color: yellow">Yellow Color</h1>
-} @case('BLUE'){
-<h1 style="background-color: blue">Blue Color</h1>
-} @default {
-<h1 style="background-color: black; color: white">No Match</h1>
-}}
+@for(user of users; track user){
+<h2>{{ user }}</h2>
+}
+
+<hr />
+
+@for(student of students; track student.name; let id=$index) {
+<h2>
+  <span>ID: {{ id + 1 }}</span>
+  <span>, Name: {{ student.name }}</span>
+  <span>, Age: {{ student.age }}</span>
+  <span>, Email: {{ student.emailId }}</span>
+</h2>
+}

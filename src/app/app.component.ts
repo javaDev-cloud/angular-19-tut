@@ -10,17 +10,12 @@ import { SignupComponent } from './components/signup/signup.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  color = 'red';
+  users = ['Munish', 'Bruce', 'Peter', 'Sam'];
 
-  handleColor(val: string) {
-    this.color = val;
-  }
-
-  handleuserColor(event: Event) {
-    this.color = (event.target as HTMLInputElement).value;
-  }
-
-  handleuserColorWithTemplateVar(val: string) {
-    this.color = val;
-  }
+  students = [
+    { name: 'Munish', age: 20, emailId: 'munish@gmail.com' },
+    { name: 'Bruce', age: 30, emailId: 'bruce@gmail.com' },
+    { name: 'Peter', age: 70, emailId: 'peter@gmail.com' },
+    { name: 'Sam', age: 26, emailId: 'sam@gmail.com' },
+  ];
 }

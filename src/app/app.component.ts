@@ -1,4 +1,11 @@
-import { Component, effect, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  Signal,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -10,7 +17,9 @@ import { SignupComponent } from './components/signup/signup.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  count: WritableSignal<number | string> = signal(10);
+  // count: WritableSignal<number | string> = signal(10);
+  //computed is read only
+  count: Signal<number> = computed(() => 10);
 
   constructor() {
     effect(() => {
@@ -21,6 +30,7 @@ export class AppComponent {
 
   handleSignal(val: string) {
     if (val == 'inc') {
+      //set() and update() is only for writtable signal
       this.count.set(11);
     } else if (val == 'dec') {
       this.count.set(10);

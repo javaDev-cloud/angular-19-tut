@@ -8,19 +8,4 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  task: string = '';
-  taskList: { id: number; name: String }[] = [];
-
-  addtask(val: string) {
-    if (!this.taskList.find((task) => task.name == val)) {
-      this.taskList.push({ id: this.taskList.length + 1, name: this.task });
-    } else {
-      alert('task already added');
-    }
-  }
-
-  deleteTask(id: number) {
-    this.taskList = this.taskList.filter((item) => item.id != id);
-  }
-}
+export class AppComponent {}

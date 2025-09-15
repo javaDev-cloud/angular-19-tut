@@ -1,10 +1,17 @@
-<h2>Effect</h2>
+<h2>Contextual Variables</h2>
 
-<h2>{{ count() }}</h2>
-
-@if(displayHeader){
-<h2 style="background-color: green">Main Heading</h2>
-}
-
-<button (click)="handleSignal('dec')">Decrement</button>
-<button (click)="handleSignal('inc')">Increment</button>
+@for(user of users; track user; let e=$even; let o=$odd){ @if ($index == 0) {
+@if(e && $first) {
+<h2 style="background-color: rgb(205, 255, 213)">
+  {{ $count }} <br />
+  <hr />
+  {{ user }}
+</h2>
+} @else if(o){
+<h2 style="background-color: grey">{{ $count }}</h2>
+<h2 style="background-color: grey">{{ user }}</h2>
+}} @else if(o){
+<h2 style="background-color: grey">{{ user }}</h2>
+} @else if(e) {
+<h2 style="background-color: blanchedalmond">{{ user }}</h2>
+} }

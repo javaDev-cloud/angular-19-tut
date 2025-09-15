@@ -18,28 +18,7 @@ import { SignupComponent } from './components/signup/signup.component';
 })
 export class AppComponent {
   count: WritableSignal<number> = signal(0);
-  displayHeader = false;
+  users = ['sam', 'peter', 'munish', 'haider', 'emily', 'angie'];
 
-  constructor() {
-    effect(() => {
-      //console.log(this.count());
-      if (this.count() == 2) {
-        this.displayHeader = true;
-        setTimeout(() => {
-          this.displayHeader = false;
-        }, 2000);
-      } else {
-        this.displayHeader = false;
-      }
-    });
-  }
-
-  handleSignal(val: string) {
-    if (val == 'inc') {
-      //set() and update() is only for writable signal
-      this.count.set(this.count() + 1);
-    } else if (val == 'dec' && this.count() > 0) {
-      this.count.set(this.count() - 1);
-    }
-  }
+  //users = [];
 }

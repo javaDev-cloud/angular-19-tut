@@ -1,7 +1,10 @@
-<h2>Signal Datatypes</h2>
+<h2>Effect</h2>
 
 <h2>{{ count() }}</h2>
 
+@if(displayHeader){
+<h2 style="background-color: green">Main Heading</h2>
+}
+
 <button (click)="handleSignal('dec')">Decrement</button>
 <button (click)="handleSignal('inc')">Increment</button>
-<button (click)="handleStringSignal('name')">StringName</button>

@@ -17,27 +17,29 @@ import { SignupComponent } from './components/signup/signup.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  // count: WritableSignal<number | string> = signal(10);
-  //computed is read only
-  count: Signal<number> = computed(() => 10);
+  count: WritableSignal<number> = signal(0);
+  displayHeader = false;
 
   constructor() {
     effect(() => {
-      //console.log(this.data);
-      console.log(this.count());
+      //console.log(this.count());
+      if (this.count() == 2) {
+        this.displayHeader = true;
+        setTimeout(() => {
+          this.displayHeader = false;
+        }, 2000);
+      } else {
+        this.displayHeader = false;
+      }
     });
   }
 
   handleSignal(val: string) {
     if (val == 'inc') {
-      //set() and update() is only for writtable signal
-      this.count.set(11);
-    } else if (val == 'dec') {
-      this.count.set(10);
+      //set() and update() is only for writable signal
+      this.count.set(this.count() + 1);
+    } else if (val == 'dec' && this.count() > 0) {
+      this.count.set(this.count() - 1);
     }
-  }
-
-  handleStringSignal(val: string) {
-    this.count.set(val);
   }
 }

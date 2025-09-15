@@ -1,17 +1,11 @@
-<h2>Contextual Variables</h2>
+<h2>Twoway Binding with ngModel</h2>
 
-@for(user of users; track user; let e=$even; let o=$odd){ @if ($index == 0) {
-@if(e && $first) {
-<h2 style="background-color: rgb(205, 255, 213)">
-  {{ $count }} <br />
-  <hr />
-  {{ user }}
-</h2>
-} @else if(o){
-<h2 style="background-color: grey">{{ $count }}</h2>
-<h2 style="background-color: grey">{{ user }}</h2>
-}} @else if(o){
-<h2 style="background-color: grey">{{ user }}</h2>
-} @else if(e) {
-<h2 style="background-color: blanchedalmond">{{ user }}</h2>
-} }
+<input type="text" placeholder="Enter name" [(ngModel)]="name" />
+
+<!-- <input
+  placeholder="enter name"
+  type="text"
+  (input)="handleInputEvent($event)"
+/> -->
+
+<h2>{{ name }}</h2>

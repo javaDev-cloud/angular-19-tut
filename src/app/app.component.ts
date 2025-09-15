@@ -9,10 +9,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  name: string = '';
+  task: string = '';
+  taskList: { id: number; name: String }[] = [];
 
-  //handling 2 way bindings without ngModel
-  // handleInputEvent(e: Event) {
-  //   this.name = (e.target as HTMLInputElement).value;
-  // }
+  addtask(val: string) {
+    if (!this.taskList.find((task) => task.name == val)) {
+      this.taskList.push({ id: this.taskList.length + 1, name: this.task });
+    } else {
+      alert('task already added');
+    }
+  }
+
+  deleteTask(id: number) {
+    this.taskList = this.taskList.filter((item) => item.id != id);
+  }
 }
